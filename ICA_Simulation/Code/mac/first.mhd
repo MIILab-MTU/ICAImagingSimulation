@@ -1,0 +1,13 @@
+ObjectType = Image
+NDims = 3
+BinaryData = True
+BinaryDataByteOrderMSB = False
+CompressedData = False
+TransformMatrix = 1 0 0 0 1 0 0 0 1
+Offset = 0 0 0
+CenterOfRotation = 0 0 0
+ElementSpacing = 0.781 0.781 0.781
+DimSize = 512 512 200
+AnatomicalOrientation = RAS
+ElementType = MET_FLOAT
+ElementDataFile = enhanced_data1103.raw
