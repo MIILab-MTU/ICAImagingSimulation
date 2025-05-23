@@ -1,0 +1,14 @@
+#verbose
+/control/execute ./mac/verbose.mac
+
+#vis
+/control/execute ./mac/visu.mac
+
+#material
+/gate/geometry/setMaterialDatabase  ./mygatematerials.db
+
+#geometry
+/control/execute   ./mac/camera.mac
+
+#phantom
+/control/execute ./mac/phantom.mac

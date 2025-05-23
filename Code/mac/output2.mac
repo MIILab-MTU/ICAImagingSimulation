@@ -1,0 +1,24 @@
+##########
+# OUTPUT #
+##########
+########
+# ROOT #
+########
+/gate/output/root/disable
+/gate/output/root/setFileName output/benchmarkCT
+/gate/output/root/setRootHitFlag 0
+/gate/output/root/setRootSinglesFlag 1
+/gate/output/root/setRootNtupleFlag 0
+/gate/output/verbose 2
+
+
+############
+# CT Image #
+############
+/gate/output/imageCT/verbose 0
+/gate/output/imageCT/enable
+/gate/output/imageCT/setFileName output/putprojimage2
+
+#/gate/random/setEngineName MersenneTwister
+#/gate/output/imageCT/setStartSeed 7489
+
