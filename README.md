@@ -65,7 +65,6 @@ Similarly, to rotate -90 degrees around the x-axis, use:
 /gate/brain_mri/placement/setRotationAngle -90 deg
 ```
 
-
 # GATE Simulation Configuration Guide
 
 ## File Structure Overview
