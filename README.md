@@ -81,40 +81,50 @@ The project contains these key components:
   - `main.mac` - Primary simulation control file
   - Other supporting source files
 
-## Using the changeAngle Tool
+## Using the changeAngle Tool instead of manually updating phantom.mac
 
 Execute the rotation calculator in terminal:
-​```bash
-./selectAngle
+```
+[nix-shell:~/Desktop/openGate/ICAImagingSimulation/chestCT]$ chmod +x changeAngle
+[nix-shell:~/Desktop/openGate/ICAImagingSimulation/chestCT]$ ./changeAngle 
 ```
 
 The tool will:
 
-1. Prompt you to enter multiple rotation axes and angles
-2. Display and select six angles:
-   - Ready-to-use GATE macro commands
+1. Ask if you want to write these changes to mac/phantom.mac and mac/output.mac **(this will also change the name of the output file)**
+2. Ask you how many rotations to make
+3. For each rotation, ask the axis to use (enter X, Y, or Z)
+4. Ask you the amount of degrees to rotate about the selected axis
 
-```terminal
-root@09556a7b8f38:/home/vgate/Project/chestCT# ./selectAngle 
-Select one angle (enter 1–6, or 0 to exit):
-1: LAO+Cranial
-2: LAO+Caudal
-3: RAO+Cranial
-4: RAO+Caudal
-5: AP Cranial
-6: AP Caudal
-0: Exit
-Your selection: 1
+Then will combine all rotations and write the resulting axis and angle to phantom.mac by combining the rotations given.
 
-Selected: [LAO+Cranial]
-/gate/container/placement/setRotationAxis  0.386624 0.908227 -0.160145
-/gate/container/placement/setRotationAngle 49.032471 deg
-/gate/container/placement/setTranslation 0 25 -59 mm
-/gate/output/imageCT/setFileName output/45LAO,20LCA
+```
+[nix-shell:~/Desktop/openGate/ICAImagingSimulation/chestCT]$ ./changeAngle 
+Number of rotations: 2
+Sync to mac/phantom.mac & mac/output.mac (y/n)? y
+Rotation #1 axis (x/y/z): x
+Angle (deg): -45
+Rotation #2 axis (x/y/z): y
+Angle (deg): -45
+/gate/container/placement/setRotationAxis  -0.678598 -0.678598 0.281085
+/gate/container/placement/setRotationAngle 62.799430 deg
+Updated rotation in mac/phantom.mac
+Updated filename in mac/output.mac
+```
+which results in the following updates:
 
-Do you want to update macro files with this angle? (y/n): n
-Macro files not updated.
-
+phantom.mac
+```
+...
+/gate/container/placement/setRotationAxis  -0.678598 -0.678598 0.281085
+/gate/container/placement/setRotationAngle 62.799430 deg
+...
+```
+output.mac
+```
+...
+/gate/output/imageCT/setFileName output/X-45+Y-45
+...
 ```
 
 ## Configuration Updates Required
