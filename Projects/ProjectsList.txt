@@ -1,4 +1,0 @@
-
-ICA 
-    Simulation 
-    Segmentation
